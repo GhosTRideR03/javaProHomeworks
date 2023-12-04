@@ -34,11 +34,6 @@ public class TaskThree {
     static boolean isVowels(String str) {
         List<Character> characterList = new ArrayList<>(Arrays.asList('A', 'E', 'I', 'O', 'U', 'W', 'Y', 'a', 'e',
                 'i', 'o', 'u', 'w', 'y'));
-        for (Character character : characterList) {
-            if (str.charAt(0) == character) {
-                return true;
-            }
-        }
-        return false;
+        return characterList.contains(str.charAt(0));
     }
 }
