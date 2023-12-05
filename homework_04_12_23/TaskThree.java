@@ -16,11 +16,11 @@ public class TaskThree {
         listMap.put(1, stringsOne);
         listMap.put(2, stringsTwo);
         listMap.put(3, stringsThree);
-        stringsPrinterFromListsOfMapList(listMap);
+        stringListPrinterFromMap(listMap);
     }
 
 
-    static void stringsPrinterFromListsOfMapList(Map<Integer, List<String>> map) {
+    static void stringListPrinterFromMap(Map<Integer, List<String>> map) {
         for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
             for (String element : entry.getValue()) {
                 if (isVowels(element)) {
