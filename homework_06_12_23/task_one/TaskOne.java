@@ -1,4 +1,4 @@
-package javaProHomeworks.homework_06_12_23;
+package javaProHomeworks.homework_06_12_23.task_one;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -20,8 +20,6 @@ public class TaskEight {
         studentGradesMap.put("Student Five", Arrays.asList(8, 9, 8, 9, 7, 9, 7, 8, 7, 8, 9, 9, 10));
         Map<Integer, List<String>> averageStudentsGradesTree = treeOfAverageGrades(studentGradesMap);
         System.out.println(averageStudentsGradesTree);
-
-
     }
 
     static Map<Integer, List<String>> treeOfAverageGrades(Map<String, List<Integer>> map) {
