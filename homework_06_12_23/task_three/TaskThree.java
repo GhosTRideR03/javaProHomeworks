@@ -12,10 +12,10 @@ public class TaskThree {
 //                для хранения информации о пользователях и переберите его, чтобы напечатать имена.
 
         TreeMap<User, String> userStringTreeMap = new TreeMap<>();
-        userStringTreeMap.put(new User("Vlad",30),"Happy");
-        userStringTreeMap.put(new User("Ivan",40),"New");
-        userStringTreeMap.put(new User("Michael",50),"Year");
-        userStringTreeMap.put(new User("Valentin",60),"Guys");
+        userStringTreeMap.put(new User("Vlad", 30), "Happy");
+        userStringTreeMap.put(new User("Ivan", 40), "New");
+        userStringTreeMap.put(new User("Michael", 50), "Year");
+        userStringTreeMap.put(new User("Valentin", 60), "Guys");
         System.out.println(userStringTreeMap);
     }
 }

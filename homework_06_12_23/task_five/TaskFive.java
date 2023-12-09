@@ -1,32 +1,45 @@
 package javaProHomeworks.homework_06_12_23.task_five;
 
-import com.github.javafaker.Faker;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class TaskFive {
-        public static Faker FAKER = new Faker();
+
     public static void main(String[] args) {
 
-//        **Создайте HashMap<Integer, String> и перепишите его в TreeMap<String, Integer>,
-//                инвертируя ключи и значения.
-
-        Map<Integer, String> hashMap = new HashMap<>();
-        for (int i = 1; i <= 10; i++) {
-            hashMap.put(i,FAKER.name().name());
-        }
-        System.out.println(hashMap);
-        Map<String, Integer> treeMap = keyValueInverter(hashMap);
-        System.out.println(treeMap);
-
+        //**Создайте два HashMap<String, User> (класс User как в задаче 3) и
+        //объедините их в один, удалив дубликаты пользователей.
+        Map<String, User> stringUserMapOne = new HashMap<>();
+        stringUserMapOne.put("String 1", new User("User 1", 25));
+        stringUserMapOne.put("String 2", new User("User 2", 25));
+        stringUserMapOne.put("String 3", new User("User 3", 30));
+        stringUserMapOne.put("String 4", new User("User 4", 35));
+        stringUserMapOne.put("String 5", new User("User 5", 40));
+        stringUserMapOne.put("String 6", new User("User 6", 45));
+        Map<String, User> stringUserMapTwo = new HashMap<>();
+        stringUserMapTwo.put("String 7", new User("User 1", 25));
+        stringUserMapTwo.put("String 8", new User("User 2", 25));
+        stringUserMapTwo.put("String 9", new User("User 3", 30));
+        stringUserMapTwo.put("String 10", new User("User 4", 35));
+        stringUserMapTwo.put("String 11", new User("User 7", 35));
+        stringUserMapTwo.put("String 12", new User("User 5", 40));
+        Map<String, User> uniqueElementsMap = mapElementsUnifier(stringUserMapOne, stringUserMapTwo);
+        System.out.println(uniqueElementsMap);
+//        System.out.println(stringUserMapTwo.get("String 7").equals(stringUserMapOne.get("String 1")));
     }
 
-    static Map<String, Integer> keyValueInverter(Map<Integer, String> map) {
-        Map<String, Integer> result = new TreeMap<>();
-        for (Integer key : map.keySet()) {
-            result.put(map.get(key), key);
+    static Map<String, User> mapElementsUnifier(Map<String, User> mapOne, Map<String, User> mapTwo) {
+        Map<String, User> result = new HashMap<>();
+        for (Map.Entry<String, User> entry : mapOne.entrySet()) {
+            if (!result.containsValue(entry.getValue())) {
+                result.put(entry.getKey(), entry.getValue());
+            }
+        }
+        for (Map.Entry<String, User> entry : mapTwo.entrySet()) {
+            if (!result.containsValue(entry.getValue())) {
+                result.put(entry.getKey(), entry.getValue());
+            }
         }
         return result;
     }

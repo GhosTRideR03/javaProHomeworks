@@ -207,7 +207,7 @@ public class CollectionProcessor {
         for (Genre element : genres) {
             int temp = 1;
             for (LibraryItem item : items) {
-                if (item.getGenre().equals(element)){
+                if (item.getGenre().equals(element)) {
                     temp++;
                 }
             }

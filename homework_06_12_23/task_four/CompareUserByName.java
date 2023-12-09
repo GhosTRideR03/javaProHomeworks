@@ -13,5 +13,4 @@ public class CompareUserByName implements Comparator<User> {
     //этот раз реализуйте Comparator<User>, чтобы сортировать пользователей по имени.
 
 
-
 }

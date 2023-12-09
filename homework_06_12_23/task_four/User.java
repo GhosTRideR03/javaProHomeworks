@@ -1,6 +1,6 @@
 package javaProHomeworks.homework_06_12_23.task_four;
 
-public class User implements Comparable<User>{
+public class User implements Comparable<User> {
 
     private String name;
     private int age;
@@ -29,7 +29,7 @@ public class User implements Comparable<User>{
 
     @Override
     public int compareTo(User o) {
-        return Integer.compare(this.age,o.age);
+        return Integer.compare(this.age, o.age);
     }
 }
 

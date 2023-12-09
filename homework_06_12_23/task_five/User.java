@@ -1,10 +1,8 @@
-package javaProHomeworks.homework_06_12_23.task_three;
+package javaProHomeworks.homework_06_12_23.task_five;
+
+import java.util.Objects;
 
 public class User implements Comparable<User> {
-//
-//      3**Создайте класс User с полями name и age, реализующий Comparable
-//    для сортировки по возрасту. Используйте TreeMap<User, String>
-//    для хранения информации о пользователях и переберите его, чтобы напечатать имена.
 
     private String name;
     private int age;
@@ -32,7 +30,21 @@ public class User implements Comparable<User> {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return age == user.age && name.equals(user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
+    @Override
     public int compareTo(User o) {
         return this.age - o.age;
     }
 }
+
