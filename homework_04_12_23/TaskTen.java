@@ -21,7 +21,7 @@ public class TaskTen {
         integerListMap.put(2, new ArrayList<>(Arrays.asList("String 2", "String 3")));
         integerListMap.put(3, new ArrayList<>(Arrays.asList("String 3", "String 4")));
 
-        mapValueKeyCrossPairs(stringIntegerMap,integerListMap);
+        mapValueKeyCrossPairs(stringIntegerMap, integerListMap);
     }
 
     static void mapValueKeyCrossPairs(Map<String, Integer> stringIntegerMap, Map<Integer, List<String>> integerListMap) {

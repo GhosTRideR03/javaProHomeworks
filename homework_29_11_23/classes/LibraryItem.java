@@ -10,6 +10,14 @@ public abstract class LibraryItem {
     private Genre genre;
     private ItemCondition condition;
 
+
+
+    public LibraryItem(String title, String author, Genre genre, ItemCondition condition) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.condition = condition;
+    }
     public String getTitle() {
         return title;
     }
@@ -24,12 +32,5 @@ public abstract class LibraryItem {
 
     public ItemCondition getCondition() {
         return condition;
-    }
-
-    public LibraryItem(String title, String author, Genre genre, ItemCondition condition) {
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.condition = condition;
     }
 }
