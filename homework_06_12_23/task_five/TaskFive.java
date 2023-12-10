@@ -22,23 +22,23 @@ public class TaskFive {
         stringUserMapTwo.put("String 8", new User("User 2", 25));
         stringUserMapTwo.put("String 9", new User("User 3", 30));
         stringUserMapTwo.put("String 10", new User("User 4", 35));
-        stringUserMapTwo.put("String 11", new User("User 7", 35));
+        stringUserMapTwo.put("String 1", new User("User 7", 35));
         stringUserMapTwo.put("String 12", new User("User 5", 40));
         Map<String, User> uniqueElementsMap = mapElementsUnifier(stringUserMapOne, stringUserMapTwo);
         System.out.println(uniqueElementsMap);
-//        System.out.println(stringUserMapTwo.get("String 7").equals(stringUserMapOne.get("String 1")));
     }
 
     static Map<String, User> mapElementsUnifier(Map<String, User> mapOne, Map<String, User> mapTwo) {
-        Map<String, User> result = new HashMap<>();
-        for (Map.Entry<String, User> entry : mapOne.entrySet()) {
-            if (!result.containsValue(entry.getValue())) {
-                result.put(entry.getKey(), entry.getValue());
-            }
-        }
+        Map<String, User> result = new HashMap<>(mapOne);
         for (Map.Entry<String, User> entry : mapTwo.entrySet()) {
             if (!result.containsValue(entry.getValue())) {
-                result.put(entry.getKey(), entry.getValue());
+                if (result.containsKey(entry.getKey())) {
+                    String temp = entry.getKey();
+                    temp = temp + " dublicated key";
+                    result.put(temp, entry.getValue());
+                } else {
+                    result.put(entry.getKey(), entry.getValue());
+                }
             }
         }
         return result;
