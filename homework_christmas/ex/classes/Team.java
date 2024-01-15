@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Team<P extends Participant> implements Comparable<Team> {
@@ -14,11 +15,38 @@ public class Team<P extends Participant> implements Comparable<Team> {
     private List<P> participants = new ArrayList<>(100);
     private double score;
     private int wins;
+    private int draws;
     private int loses;
+    private int maxWinStreak;
+    private int currentWinStreak;
 
 
     public Team(String name) {
         this.name = name;
+    }
+
+    public int getMaxWinStreak() {
+        return maxWinStreak;
+    }
+
+    public void setMaxWinStreak(int maxWinStreak) {
+        this.maxWinStreak = maxWinStreak;
+    }
+
+    public int getCurrentWinStreak() {
+        return currentWinStreak;
+    }
+
+    public void setCurrentWinStreak(int currentWinStreak) {
+        this.currentWinStreak = currentWinStreak;
+    }
+
+    public int getDraws() {
+        return draws;
+    }
+
+    public void setDraws(int draws) {
+        this.draws = draws;
     }
 
     public double getScore() {
@@ -57,8 +85,17 @@ public class Team<P extends Participant> implements Comparable<Team> {
         return participants;
     }
 
-    public void setParticipants(List<P> participants) {
-        this.participants = participants;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team<?> team = (Team<?>) o;
+        return Objects.equals(name, team.name) && Objects.equals(participants, team.participants);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, participants);
     }
 
     @Override
@@ -75,7 +112,7 @@ public class Team<P extends Participant> implements Comparable<Team> {
     public int compareTo(Team o) {
         if (this.getScore() == o.getScore()) {
             return 0;
-        } else if (this.getScore()>o.getScore()){
+        } else if (this.getScore() > o.getScore()) {
             return 1;
         } else {
             return -1;

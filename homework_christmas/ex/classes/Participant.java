@@ -3,7 +3,7 @@ package javaProHomeworks.homework_christmas.ex.classes;
 import java.util.Objects;
 
 
-public class Participant {
+public class Participant implements Comparable<Participant> {
     private String name;
     private int age;
 
@@ -47,5 +47,10 @@ public class Participant {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Participant o) {
+        return this.getAge() - o.getAge();
     }
 }
